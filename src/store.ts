@@ -1,7 +1,14 @@
-import { getListener, batch, DEV, $PROXY, $TRACK, createSignal } from "solid-js";
+import { batch, signal } from '@preact/signals-react';
 
-export const $RAW = Symbol("store-raw"),
-  $NODE = Symbol("store-node");
+export const DEV = {
+  registerGraph: () => {},
+};
+export const getListener = () => true;
+
+export const $PROXY = Symbol('store-proxy');
+export const $TRACK = Symbol('store-track');
+export const $RAW = Symbol('store-raw');
+export const $NODE = Symbol('store-node');
 
 // debug hooks for devtools
 export const DevHooks: { onStoreNodeUpdate: OnStoreNodeUpdate | null } = {
@@ -148,12 +155,11 @@ export function ownKeys(target: StoreNode) {
 }
 
 function createDataNode(value?: any) {
-  const [s, set] = createSignal<any>(value, {
-    equals: false,
-    internal: true
-  });
-  (s as DataNode).$ = set;
-  return s as DataNode;
+  const s = signal<any>(value);
+  const set = (value) => s.value = value;
+  const get = () => s.value;
+  (get as DataNode).$ = set;
+  return get as DataNode;
 }
 
 const proxyTraps: ProxyHandler<StoreNode> = {

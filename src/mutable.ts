@@ -1,15 +1,17 @@
-import { batch, getListener, DEV, $PROXY, $TRACK } from "solid-js";
+import { batch } from '@preact/signals-react';
+import { $PROXY, $TRACK, DEV, getListener } from "./store";
+
 import {
-  unwrap,
-  isWrappable,
-  getDataNodes,
-  trackSelf,
-  getDataNode,
-  $RAW,
   $NODE,
+  $RAW,
   StoreNode,
+  getDataNode,
+  getDataNodes,
+  isWrappable,
+  ownKeys,
   setProperty,
-  ownKeys
+  trackSelf,
+  unwrap
 } from "./store.js";
 
 function proxyDescriptor(target: StoreNode, property: PropertyKey) {
