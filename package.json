@@ -60,5 +60,8 @@
       },
       "require": "./dist/store.cjs"
     }
+  },
+  "dependencies": {
+    "@preact/signals-react": "^1.3.2"
   }
 }
