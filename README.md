@@ -1,4 +1,6 @@
-# Solid Store
+# Preact Store
+
+> A fork of [solid's store](https://github.com/solidjs/solid/tree/main/packages/solid/store), switching out its underlying signal implementation for [@preact/signals](https://github.com/preactjs/signals). Missing API to make this store fully featured is a port of `untrack`/`.peek`. 
 
 This submodules contains the means for handling deeps nested reactivity. It provides 2 main primitives `createStore` and `createMutable` which leverage proxies to create dynamic nested reactive structures.
 
@@ -9,7 +11,7 @@ For full documentation, check out the [website](https://www.solidjs.com/docs/lat
 ## Example
 
 ```js
-import { createStore } from "solid-js/store";
+import { createStore } from "preact-store";
 
 const [store, setStore] = createStore({
   user: {
@@ -21,3 +23,21 @@ const [store, setStore] = createStore({
 // update store.user.firstName
 setStore("user", "firstName", "Will");
 ```
+
+```js
+import { createMutable } from "preact-store";
+
+const store = createMutable({
+  user: {
+    firstName: "John",
+    lastName: "Smith"
+  }
+});
+
+// update store.user.firstName
+store.user.firstName = 'Will';
+``` 
+
+## Acknowledgement
+
+- check out [deepsignal](https://github.com/luisherranz/deepsignal) for another implementation of a mutable proxy.
