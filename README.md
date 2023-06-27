@@ -40,4 +40,4 @@ store.user.firstName = 'Will';
 
 ## Acknowledgement
 
-- check out [deepsignal](https://github.com/luisherranz/deepsignal) for another implementation of a mutable proxy.
+- check out [deepsignal](https://github.com/luisherranz/deepsignal) for another c🕳️🕳️l implementation of a mutable proxy.
