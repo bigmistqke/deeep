@@ -1,4 +1,4 @@
-# Preact Store
+# Deeep 🕳️
 
 > A fork of [solid's store](https://github.com/solidjs/solid/tree/main/packages/solid/store), switching out its underlying signal implementation for [@preact/signals](https://github.com/preactjs/signals). Missing API to make this store fully featured is a port of `untrack`/`.peek`. 
 
