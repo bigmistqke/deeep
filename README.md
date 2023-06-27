@@ -11,9 +11,9 @@ For full documentation, check out the [website](https://www.solidjs.com/docs/lat
 ## Example
 
 ```js
-import { createStore } from "preact-store";
+import { useStore } from "deeep";
 
-const [store, setStore] = createStore({
+const [store, setStore] = useStore({
   user: {
     firstName: "John",
     lastName: "Smith"
@@ -25,9 +25,9 @@ setStore("user", "firstName", "Will");
 ```
 
 ```js
-import { createMutable } from "preact-store";
+import { useMutable } from "deeep";
 
-const store = createMutable({
+const store = useMutable({
   user: {
     firstName: "John",
     lastName: "Smith"
